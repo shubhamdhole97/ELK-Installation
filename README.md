@@ -107,7 +107,7 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
 ## 🚀 STEP 8: Test Elasticsearch
 
 ```bash
-curl -u elastic:<PASSWORD> http://localhost:9200
+curl -u elastic:<PASSWORD> https://localhost:9200
 ```
 
 ---
