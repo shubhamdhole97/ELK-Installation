@@ -1,0 +1,102 @@
+ubuntu@elk:~$ ^C
+ubuntu@elk:~$ history
+    1  sudo nano /etc/elasticsearch/elasticsearch.yml
+    2  sudo nano /etc/elasticsearch/jvm.options
+    3  sudo systemctl daemon-reexec
+    4* sudo systemctl enable elasticse[B
+    5  sudo systemctl start elasticsearch
+    6  sudo systemctl status elasticsearch
+    7  sudo nano /etc/elasticsearch/jvm.options
+    8  sudo systemctl daemon-reexec
+    9  sudo systemctl enable elasticsearch
+   10  sudo systemctl start elasticsearch
+   11  sudo systemctl status elasticsearch
+   12  cat /var/log/elasticsearch/elasticsearch.log
+   13* sudo suOA
+   14  sudo vi /etc/elasticsearch/elasticsearch.yml
+   15  sudo nano /etc/elasticsearch/elasticsearch.yml
+   16  sudo nano /etc/elasticsearch/jvm.options
+   17  sudo nano /etc/elasticsearch/elasticsearch.yml
+   18  sudo systemctl daemon-reexec
+   19  sudo systemctl enable elasticsearch
+   20  sudo systemctl start elasticsearch
+   21  sudo systemctl status elasticsearch
+   22  sudo cat /etc/elasticsearch/elasticsearch.yml
+   23  sudo nano /etc/elasticsearch/elasticsearch.yml
+   24  sudo systemctl daemon-reexec
+   25  sudo systemctl enable elasticsearch
+   26  sudo systemctl start elasticsearch
+   27  sudo systemctl status elasticsearch
+   28  sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+   29  curl -u elastic:SB2=NV8mKxD7RQ-yPdTN http://localhost:9200
+   30  sudo apt install kibana -y
+   31  sudo nano /etc/kibana/kibana.yml
+   32  sudo systemctl enable kibana
+   33  sudo systemctl start kibana
+   34  sudo systemctl status kibana
+   35  curl http://13.233.77.57:5601/
+   36  curl http://13.233.77.57:5601
+   37  curl -k -u elastic:'SB2=NV8mKxD7RQ-yPdTN' https://localhost:9200
+   38  sudo grep -E '^(server.host|server.port|elasticsearch.hosts)' /etc/kibana/kibana.yml
+   39  ss -ltnp | grep 5601
+   40  sudo nano /etc/kibana/kibana.yml
+   41  sudo cat /etc/kibana/kibana.yml
+   42  sudo nano /etc/kibana/kibana.yml
+   43  sudo systemctl restart kibana
+   44  sudo systemctl status kibana
+   45  ss -ltnp | grep 5601
+   46  curl http://localhost:5601
+   47  sudo journalctl -u kibana -n 50
+   48  sudo nano /etc/kibana/kibana.yml
+   49  sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system
+   50  sudo nano /etc/kibana/kibana.yml
+   51  sudo systemctl restart kibana
+   52  sudo systemctl status kibana --no-pager
+   53  ss -ltnp | grep 5601
+   54  curl -I http://localhost:5601
+   55  sudo journalctl -u kibana -n 50
+   56  ss -ltnp | grep 5601
+   57  sudo apt install logstash -y
+   58  sudo nano /etc/logstash/conf.d/logstash.conf
+   59  sudo systemctl enable logstash
+   60  sudo systemctl start logstash
+   61  sudo systemctl status logstash
+   62  echo '{"message":"hello from logstash","app":"test"}' | nc localhost 5000
+   63  curl -u elastic:SB2=NV8mKxD7RQ-yPdTN "http://localhost:9200/_cat/indices?v"
+   64  curl -k -u elastic:'SB2=NV8mKxD7RQ-yPdTN' https://localhost:9200/k8s-logs-*/_search?pretty
+   65  echo '{"app":"test","message":"hello from logstash","level":"INFO"}' | nc localhost 5000
+   66  curl -k -u elastic:'SB2=NV8mKxD7RQ-yPdTN' https://localhost:9200/k8s-logs-*/_search?pretty
+   67  sudo nano /etc/logstash/conf.d/logstash.conf
+   68  sudo systemctl enable logstash
+   69  sudo systemctl start logstash
+   70  sudo systemctl status logstash
+   71  curl -k -u elastic:'SB2=NV8mKxD7RQ-yPdTN' https://localhost:9200/_cat/indices?v
+   72  sudo nano /etc/logstash/conf.d/logstash.conf
+   73  sudo cat /etc/logstash/conf.d/logstash.conf
+   74  sudo nano /etc/logstash/conf.d/logstash.conf
+   75  sudo /usr/share/logstash/bin/logstash --path.settings /etc/logstash -t
+   76  sudo systemctl restart logstash
+   77  sudo systemctl status logstash --no-pager
+   78  sudo journalctl -u logstash -n 50 --no-pager
+   79  printf '{"app":"test","message":"hello from logstash","level":"INFO"}\n' | nc localhost 5000
+   80  curl -k -u elastic:'SB2=NV8mKxD7RQ-yPdTN' https://localhost:9200/_cat/indices?v
+   81  curl -k -u elastic:'SB2=NV8mKxD7RQ-yPdTN' https://localhost:9200/k8s-logs-*/_search?pretty
+   82  curl -u elastic:SB2=NV8mKxD7RQ-yPdTN "http://localhost:9200/_cat/indices?v"
+   83  curl -u elastic:SB2=NV8mKxD7RQ-yPdTN "https://localhost:9200/_cat/indices?v"
+   84  printf '{"app":"test","message":"shubhamdholehere","level":"INFO"}\n' | nc localhost 5000
+   85  printf '{"app":"test","message":"ERROR ALA","level":"ERROR"}\n' | nc localhost 5000
+   86  printf '{"app":"petclinic","level":"INFO","message":"Application started successfully","service":"petclinic-be","env":"dev"}\n' | nc localhost 5000
+   87  printf '{"app":"petclinic","level":"WARN","message":"Database response slow","service":"petclinic-be","env":"dev","response_time_ms":1240}\n' | nc localhost 5000
+   88  printf '{"app":"petclinic","level":"ERROR","message":"Failed to connect to payment service","service":"petclinic-be","env":"dev","error_code":"PAY_500"}\n' | nc localhost 5000
+   89  printf '{"app":"gateway","level":"INFO","message":"Incoming request received","service":"api-gateway","env":"dev","method":"GET","path":"/api/owners"}\n' | nc localhost 5000
+   90  printf '{"app":"gateway","level":"INFO","message":"Request completed","service":"api-gateway","env":"dev","method":"GET","path":"/api/owners","status":200,"response_time_ms":145}\n' | nc localhost 5000
+   91  cat <<'EOF' | nc localhost 5000
+{"app":"petclinic","level":"INFO","message":"Application started successfully","service":"petclinic-be","env":"dev"}
+{"app":"petclinic","level":"WARN","message":"Database response slow","service":"petclinic-be","env":"dev","response_time_ms":1240}
+{"app":"petclinic","level":"ERROR","message":"Failed to connect to payment service","service":"petclinic-be","env":"dev","error_code":"PAY_500"}
+{"app":"gateway","level":"INFO","message":"Incoming request received","service":"api-gateway","env":"dev","method":"GET","path":"/api/owners"}
+{"app":"gateway","level":"INFO","message":"Request completed","service":"api-gateway","env":"dev","method":"GET","path":"/api/owners","status":200,"response_time_ms":145}
+{"app":"auth-service","level":"ERROR","message":"JWT validation failed","service":"auth-service","env":"dev","username":"testuser"}
+EOF
+
+   92  history
