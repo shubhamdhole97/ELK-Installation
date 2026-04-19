@@ -28,6 +28,7 @@
     <webjars-locator.version>1.1.0</webjars-locator.version>
     <webjars-bootstrap.version>5.3.6</webjars-bootstrap.version>
     <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
+    <logstash-logback-encoder.version>8.1</logstash-logback-encoder.version>
 
     <checkstyle.version>10.25.0</checkstyle.version>
     <jacoco.version>0.8.13</jacoco.version>
@@ -64,6 +65,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.logstash.logback</groupId>
+      <artifactId>logstash-logback-encoder</artifactId>
+      <version>${logstash-logback-encoder.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

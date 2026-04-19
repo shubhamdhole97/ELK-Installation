@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+  <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="spring-petclinic"/>
+  <springProperty scope="context" name="rootLevel" source="logging.level.root" defaultValue="INFO"/>
+
+  <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+  <property name="LOGSTASH_HOST" value="${LOGSTASH_HOST:-localhost}"/>
+  <property name="LOGSTASH_PORT" value="${LOGSTASH_PORT:-5000}"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+    <destination>${LOGSTASH_HOST}:${LOGSTASH_PORT}</destination>
+    <keepAliveDuration>5 minutes</keepAliveDuration>
+    <writeBufferSize>8192</writeBufferSize>
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <customFields>{"app_name":"${appName}","environment":"${SPRING_PROFILES_ACTIVE:-default}"}</customFields>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNC_LOGSTASH" class="ch.qos.logback.classic.AsyncAppender">
+    <queueSize>2048</queueSize>
+    <discardingThreshold>0</discardingThreshold>
+    <neverBlock>true</neverBlock>
+    <includeCallerData>false</includeCallerData>
+    <appender-ref ref="LOGSTASH"/>
+  </appender>
+
+  <logger name="org.springframework" level="INFO"/>
+  <logger name="org.hibernate" level="WARN"/>
+
+  <root level="${rootLevel}">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ASYNC_LOGSTASH"/>
+  </root>
+
+</configuration>
